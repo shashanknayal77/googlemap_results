@@ -8,7 +8,7 @@ st.title('Google Maps Search Results')
 # Input fields
 api_key = 'e4c319a9ebe06f54d3e99b82ec7605428a0b713b5b63f1167b2a992c966269cc'
 type_search = st.text_input('Enter the search query:')       
-lang_lat = "@29.1769258,79.4507368,13z"
+lang_lat = st.text_input('Enter the latitude and longitude (e.g., @29.1769258,79.4507368,13z):')
 
 # Create SERP API client
 client = serpapi.Client(api_key=api_key)
