@@ -1,25 +1,13 @@
 import streamlit as st
-import geocoder
 import serpapi
 import pandas as pd
-
-# Get the user's location based on IP address
-g = geocoder.ip('me')
-st.set_page_config(layout="wide")
-if g.ok:
-    latitude, longitude = g.latlng
-    # st.write('Your current location:')
-    st.write('Latitude:', latitude)
-    st.write('Longitude:', longitude)
-else:
-    st.write('Unable to retrieve your location.')
 
 st.title('Google Maps Search Results')
 
 # Input fields
 api_key = 'e4c319a9ebe06f54d3e99b82ec7605428a0b713b5b63f1167b2a992c966269cc'
 type_search = st.text_input('Enter the search query:')       
-lang_lat = f"@{latitude},{longitude},13z"
+lang_lat = "@29.1769258,79.4507368,13z"
 
 # Create SERP API client
 client = serpapi.Client(api_key=api_key)
