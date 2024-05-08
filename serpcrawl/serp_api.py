@@ -2,6 +2,7 @@ import streamlit as st
 import serpapi
 import pandas as pd
 
+st.set_page_config(layout="wide")
 st.title('Google Maps Search Results')
 
 # Input fields
