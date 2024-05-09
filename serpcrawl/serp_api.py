@@ -1,14 +1,20 @@
 import streamlit as st
 import serpapi
 import pandas as pd
+import re
 
 st.set_page_config(layout="wide")
 st.title('Google Maps Search Results')
 
 # Input fields
-api_key = 'e4c319a9ebe06f54d3e99b82ec7605428a0b713b5b63f1167b2a992c966269cc'
+api_key = 'e3940ba16652ef030fcb5fa1778728a1b5232cb82d07892b7b50a1a016b302d0'
 type_search = st.text_input('Enter the search query:')       
-lang_lat = st.text_input('Enter the latitude and longitude (e.g., @29.1769258,79.4507368,13z):')
+url = st.text_input('Enter url')
+match = re.search(r'@(\d+\.\d+,\d+\.\d+,\d+z)', url)
+if match:
+    lang_lat = match.group()
+else:
+    print("Location part not found in URL.")
 
 # Create SERP API client
 client = serpapi.Client(api_key=api_key)
